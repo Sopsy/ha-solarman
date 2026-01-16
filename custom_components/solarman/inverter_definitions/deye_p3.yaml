@@ -1520,6 +1520,7 @@ parameters:
             value: Load
 
   - group: BMS 1
+    bms: 1
     items:
       - name: "BMS 1 Charging Voltage"
         attribute:
@@ -1636,7 +1637,7 @@ parameters:
         attributes: ["value"]
 
       - name: "BMS 1 Battery 1 Force Charge Flag"
-        platform: binary_sensor
+        attribute:
         class: "problem"
         rule: 1
         registers: [0x00DE]
@@ -1644,7 +1645,7 @@ parameters:
         bit: 1
 
       - name: "BMS 1 Battery 2 Force Charge Flag"
-        platform: binary_sensor
+        attribute:
         class: "problem"
         rule: 1
         registers: [0x00DE]
@@ -1727,6 +1728,7 @@ parameters:
         icon: "mdi:alpha-v"
 
   - group: BMS 2
+    bms: 2
     items:
       - name: "BMS 2 Charging Voltage"
         attribute:
@@ -1829,7 +1831,11 @@ parameters:
         rule: 1
         registers: [0x00FB]
         icon: "mdi:battery-alert"
-        attributes: ["value"]
+        attributes: [
+          "value",
+          "BMS 2 Battery 1 Force Charge Flag",
+          "BMS 2 Battery 2 Force Charge Flag"
+        ]
 
       - name: "BMS 2 Fault"
         platform: binary_sensor
@@ -1843,7 +1849,7 @@ parameters:
         attributes: ["value"]
 
       - name: "BMS 2 Battery 1 Force Charge Flag"
-        platform: binary_sensor
+        attribute:
         class: "problem"
         rule: 1
         registers: [0x00FD]
@@ -1851,7 +1857,7 @@ parameters:
         bit: 1
 
       - name: "BMS 2 Battery 2 Force Charge Flag"
-        platform: binary_sensor
+        attribute:
         class: "problem"
         rule: 1
         registers: [0x00FD]
@@ -2354,6 +2360,7 @@ parameters:
 
       # Battery - The State of Charge (SOC) of battery 1
       - name: "Battery 1"
+        bms: 1
         class: "battery"
         state_class: "measurement"
         uom: "%"
@@ -2383,6 +2390,7 @@ parameters:
 
       # Battery - The State of Charge (SOC) of battery 2
       - name: "Battery 2"
+        bms: 2
         class: "battery"
         state_class: "measurement"
         uom: "%"
