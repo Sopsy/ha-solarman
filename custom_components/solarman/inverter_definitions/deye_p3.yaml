@@ -1519,10 +1519,10 @@ parameters:
           - bit: 1
             value: Load
 
-  - group: BMS 1
+  - group: BMS
     bms: 1
     items:
-      - name: "BMS 1 Charging Voltage"
+      - name: "Battery BMS Charging Voltage"
         attribute:
         class: "voltage"
         state_class: "measurement"
@@ -1531,7 +1531,7 @@ parameters:
         rule: 1
         registers: [0x00D2]
 
-      - name: "BMS 1 Discharging Voltage"
+      - name: "Battery BMS Discharging Voltage"
         attribute:
         class: "voltage"
         state_class: "measurement"
@@ -1540,7 +1540,7 @@ parameters:
         rule: 1
         registers: [0x00D3]
 
-      - name: "BMS 1 Charging Current"
+      - name: "Battery BMS Charging Current"
         attribute:
         class: "current"
         state_class: "measurement"
@@ -1549,7 +1549,7 @@ parameters:
         registers: [0x00D4]
         icon: "mdi:current-dc"
 
-      - name: "BMS 1 Discharging Current"
+      - name: "Battery BMS Discharging Current"
         attribute:
         class: "current"
         state_class: "measurement"
@@ -1558,7 +1558,7 @@ parameters:
         registers: [0x00D5]
         icon: "mdi:current-dc"
 
-      - name: "BMS 1 SOC"
+      - name: "Battery BMS SOC"
         attribute:
         state_class: "measurement"
         uom: "%"
@@ -1569,7 +1569,7 @@ parameters:
           min: 0
           max: 101
 
-      - name: "BMS 1 Voltage"
+      - name: "Battery BMS Voltage"
         attribute:
         class: "voltage"
         state_class: "measurement"
@@ -1578,7 +1578,7 @@ parameters:
         rule: 1
         registers: [0x00D7]
 
-      - name: "BMS 1 Current"
+      - name: "Battery BMS Current"
         attribute:
         class: "current"
         state_class: "measurement"
@@ -1588,7 +1588,7 @@ parameters:
         registers: [0x00D8]
         icon: "mdi:current-dc"
 
-      - name: "BMS 1 Temperature"
+      - name: "Battery BMS Temperature"
         attribute:
         class: "temperature"
         state_class: "measurement"
@@ -1599,7 +1599,7 @@ parameters:
         registers: [0x00D9]
         icon: "mdi:thermometer"
 
-      - name: "BMS 1 Max Charging Current"
+      - name: "Battery BMS Max Charging Current"
         attribute:
         class: "current"
         state_class: "measurement"
@@ -1608,7 +1608,7 @@ parameters:
         registers: [0x00DA]
         icon: "mdi:current-dc"
 
-      - name: "BMS 1 Max Discharging Current"
+      - name: "Battery BMS Max Discharging Current"
         attribute:
         class: "current"
         state_class: "measurement"
@@ -1617,7 +1617,7 @@ parameters:
         registers: [0x00DB]
         icon: "mdi:current-dc"
 
-      - name: "BMS 1 Alarm"
+      - name: "Battery Alarm"
         platform: binary_sensor
         class: "problem"
         rule: 1
@@ -1625,7 +1625,7 @@ parameters:
         icon: "mdi:battery-alert"
         attributes: ["value"]
 
-      - name: "BMS 1 Fault"
+      - name: "Battery Fault"
         platform: binary_sensor
         class: "problem"
         rule: 1
@@ -1636,7 +1636,7 @@ parameters:
           max: 65535
         attributes: ["value"]
 
-      - name: "BMS 1 Battery 1 Force Charge Flag"
+      - name: "Battery BMS Battery 1 Force Charge Flag"
         attribute:
         class: "problem"
         rule: 1
@@ -1644,7 +1644,7 @@ parameters:
         icon: "mdi:battery-alert"
         bit: 1
 
-      - name: "BMS 1 Battery 2 Force Charge Flag"
+      - name: "Battery BMS Battery 2 Force Charge Flag"
         attribute:
         class: "problem"
         rule: 1
@@ -1652,7 +1652,7 @@ parameters:
         icon: "mdi:battery-alert"
         bit: 2
 
-      - name: "BMS 1 Sleep Flag"
+      - name: "Battery BMS Sleep Flag"
         platform: binary_sensor
         class: "problem"
         rule: 1
@@ -1660,7 +1660,7 @@ parameters:
         icon: "mdi:battery-outline"
         bit: 3
 
-      - name: "BMS 1 Other Flag"
+      - name: "Battery BMS Other Flag"
         attribute:
         rule: 1
         registers: [0x00DE]
@@ -1669,7 +1669,7 @@ parameters:
           min: 0
           max: 65535
 
-      - name: "BMS 1 Type"
+      - name: "Battery BMS Type"
         platform: select
         rule: 1
         registers: [0x00DF]
@@ -1698,21 +1698,21 @@ parameters:
           - key: 0x000A
             value: "Shenggao Electric CAN"
 
-      - name: "BMS 1 State of Health"
+      - name: "Battery BMS State of Health"
         state_class: "measurement"
         uom: "%"
         rule: 1
         registers: [0x00E0]
         icon: "mdi:battery-heart"
 
-      - name: "BMS 1 Software Version"
+      - name: "Battery BMS Software Version"
         attribute:
         state_class: "measurement"
         rule: 7
         registers: [0x00E1]
         icon: "mdi:alpha-v"
 
-      - name: "BMS 1 Rated Ah"
+      - name: "Battery BMS Rated Ah"
         attribute:
         state_class: "measurement"
         uom: "Ah"
@@ -1720,223 +1720,11 @@ parameters:
         registers: [0x00E2]
         icon: "mdi:battery"
 
-      - name: "BMS 1 Hardware Version"
+      - name: "Battery BMS Hardware Version"
         attribute:
         state_class: "measurement"
         rule: 7
         registers: [0x00E3]
-        icon: "mdi:alpha-v"
-
-  - group: BMS 2
-    bms: 2
-    items:
-      - name: "BMS 2 Charging Voltage"
-        attribute:
-        class: "voltage"
-        state_class: "measurement"
-        uom: "V"
-        scale: [0.01, 0.1]
-        rule: 1
-        registers: [0x00F1]
-
-      - name: "BMS 2 Discharging Voltage"
-        attribute:
-        class: "voltage"
-        state_class: "measurement"
-        uom: "V"
-        scale: [0.01, 0.1]
-        rule: 1
-        registers: [0x00F2]
-
-      - name: "BMS 2 Charging Current"
-        attribute:
-        class: "current"
-        state_class: "measurement"
-        uom: "A"
-        rule: 1
-        registers: [0x00F3]
-        icon: "mdi:current-dc"
-
-      - name: "BMS 2 Discharging Current"
-        attribute:
-        class: "current"
-        state_class: "measurement"
-        uom: "A"
-        rule: 1
-        registers: [0x00F4]
-        icon: "mdi:current-dc"
-
-      - name: "BMS 2 SOC"
-        attribute:
-        state_class: "measurement"
-        uom: "%"
-        rule: 1
-        registers: [0x00F5]
-        icon: "mdi:battery"
-        validation:
-          min: 0
-          max: 101
-
-      - name: "BMS 2 Voltage"
-        attribute:
-        class: "voltage"
-        state_class: "measurement"
-        uom: "V"
-        scale: [0.01, 0.1]
-        rule: 1
-        registers: [0x00F6]
-
-      - name: "BMS 2 Current"
-        attribute:
-        class: "current"
-        state_class: "measurement"
-        uom: "A"
-        scale: [1, 0.1]
-        rule: 2
-        registers: [0x00F7]
-        icon: "mdi:current-dc"
-
-      - name: "BMS 2 Temperature"
-        attribute:
-        class: "temperature"
-        state_class: "measurement"
-        uom: "°C"
-        rule: 1
-        scale: 0.1
-        offset: 1000
-        registers: [0x00F8]
-        icon: "mdi:thermometer"
-
-      - name: "BMS 2 Max Charging Current"
-        attribute:
-        class: "current"
-        state_class: "measurement"
-        uom: "A"
-        rule: 1
-        registers: [0x00F9]
-        icon: "mdi:current-dc"
-
-      - name: "BMS 2 Max Discharging Current"
-        attribute:
-        class: "current"
-        state_class: "measurement"
-        uom: "A"
-        rule: 1
-        registers: [0x00FA]
-        icon: "mdi:current-dc"
-
-      - name: "BMS 2 Alarm"
-        platform: binary_sensor
-        class: "problem"
-        rule: 1
-        registers: [0x00FB]
-        icon: "mdi:battery-alert"
-        attributes: [
-          "value",
-          "BMS 2 Battery 1 Force Charge Flag",
-          "BMS 2 Battery 2 Force Charge Flag"
-        ]
-
-      - name: "BMS 2 Fault"
-        platform: binary_sensor
-        class: "problem"
-        rule: 1
-        registers: [0x00FC]
-        icon: "mdi:battery-alert-variant"
-        range:
-          min: 0
-          max: 65535
-        attributes: ["value"]
-
-      - name: "BMS 2 Battery 1 Force Charge Flag"
-        attribute:
-        class: "problem"
-        rule: 1
-        registers: [0x00FD]
-        icon: "mdi:battery-alert"
-        bit: 1
-
-      - name: "BMS 2 Battery 2 Force Charge Flag"
-        attribute:
-        class: "problem"
-        rule: 1
-        registers: [0x00FD]
-        icon: "mdi:battery-alert"
-        bit: 2
-
-      - name: "BMS 2 Sleep Flag"
-        platform: binary_sensor
-        class: "problem"
-        rule: 1
-        registers: [0x00FD]
-        icon: "mdi:battery-outline"
-        bit: 3
-
-      - name: "BMS 2 Other Flag"
-        attribute:
-        rule: 1
-        registers: [0x00FD]
-        icon: "mdi:battery-unknown"
-        range:
-          min: 0
-          max: 65535
-
-      - name: "BMS 2 Type"
-        platform: select
-        rule: 1
-        registers: [0x00FE]
-        icon: "mdi:battery"
-        lookup:
-          - key: 0x0000
-            value: "PYLON/CAN"
-          - key: 0x0001
-            value: "Tianbangda RS485"
-          - key: 0x0002
-            value: "KOK"
-          - key: 0x0003
-            value: "Keith"
-          - key: 0x0004
-            value: "Toppai"
-          - key: 0x0005
-            value: "Peneng 485"
-          - key: 0x0006
-            value: "Jeris 485"
-          - key: 0x0007
-            value: "Sunwoda 485"
-          - key: 0x0008
-            value: "Xinrui 485"
-          - key: 0x0009
-            value: "Tianbangda 485"
-          - key: 0x000A
-            value: "Shenggao Electric CAN"
-
-      - name: "BMS 2 State of Health"
-        state_class: "measurement"
-        uom: "%"
-        rule: 1
-        registers: [0x00FF]
-        icon: "mdi:battery-heart"
-
-      - name: "BMS 2 Software Version"
-        attribute:
-        state_class: "measurement"
-        rule: 7
-        registers: [0x0100]
-        icon: "mdi:alpha-v"
-
-      - name: "BMS 2 Rated Ah"
-        attribute:
-        state_class: "measurement"
-        uom: "Ah"
-        rule: 1
-        registers: [0x0101]
-        icon: "mdi:battery"
-
-      - name: "BMS 2 Hardware Version"
-        attribute:
-        state_class: "measurement"
-        rule: 7
-        registers: [0x0102]
         icon: "mdi:alpha-v"
 
   - group: Meter
@@ -2359,7 +2147,7 @@ parameters:
             registers: [0x0251]
 
       # Battery - The State of Charge (SOC) of battery 1
-      - name: "Battery 1"
+      - name: "Battery"
         bms: 1
         class: "battery"
         state_class: "measurement"
@@ -2375,47 +2163,17 @@ parameters:
         attributes:
           [
             "Battery Corrected Capacity",
-            "BMS 1 SOC",
-            "BMS 1 Current",
-            "BMS 1 Voltage",
-            "BMS 1 Other Flag",
-            "BMS 1 Charging Voltage",
-            "BMS 1 Discharging Voltage",
-            "BMS 1 Charging Current",
-            "BMS 1 Discharging Current",
-            "BMS 1 Max Charging Current",
-            "BMS 1 Max Discharging Current",
-            "BMS 1 Rated Ah",
-          ]
-
-      # Battery - The State of Charge (SOC) of battery 2
-      - name: "Battery 2"
-        bms: 2
-        class: "battery"
-        state_class: "measurement"
-        uom: "%"
-        rule: 1
-        registers: [0x024D]
-        range:
-          min: 0
-          max: 100
-        validation:
-          min: 0
-          max: 101
-        attributes:
-          [
-            "Battery Corrected Capacity",
-            "BMS 2 SOC",
-            "BMS 2 Current",
-            "BMS 2 Voltage",
-            "BMS 2 Other Flag",
-            "BMS 2 Charging Voltage",
-            "BMS 2 Discharging Voltage",
-            "BMS 2 Charging Current",
-            "BMS 2 Discharging Current",
-            "BMS 2 Max Charging Current",
-            "BMS 2 Max Discharging Current",
-            "BMS 2 Rated Ah",
+            "Battery BMS SOC",
+            "Battery BMS Current",
+            "Battery BMS Voltage",
+            "Battery BMS Other Flag",
+            "Battery BMS Charging Voltage",
+            "Battery BMS Discharging Voltage",
+            "Battery BMS Charging Current",
+            "Battery BMS Discharging Current",
+            "Battery BMS Max Charging Current",
+            "Battery BMS Max Discharging Current",
+            "Battery BMS Rated Ah",
           ]
 
       # Battery - The power of battery is S16bit
@@ -3563,7 +3321,7 @@ parameters:
           min: -99
           max: 99
 
-      - name: "Battery"
+      - name: "Battery 1"
         class: "battery"
         state_class: "measurement"
         uom: "%"
